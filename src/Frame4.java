@@ -174,8 +174,8 @@ public class Frame4 extends javax.swing.JFrame {
         float hasil1 = (float) (4/3*3.14*jari*jari*jari);
         
         try{
-            JOptionPane.showMessageDialog(null, "Luas Permukaan Bola Adalah : "
-            +hasil1, "luas", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Volume Bola Adalah : "
+            +hasil1, "volume", JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error : "+e, "Gagal",
                     JOptionPane.WARNING_MESSAGE);
@@ -191,7 +191,7 @@ public class Frame4 extends javax.swing.JFrame {
 
         int hasil = panjang * lebar * tinggi;
         try{
-            JOptionPane.showMessageDialog(null, "Volume balok adalah :"+hasil,"luas",
+            JOptionPane.showMessageDialog(null, "Volume balok adalah :"+hasil,"volume",
                     JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error: "+e, "Gagal",
@@ -209,8 +209,8 @@ public class Frame4 extends javax.swing.JFrame {
         int hasil = sisi * sisi * sisi;
 
         try{
-            JOptionPane.showMessageDialog(null, "Luas Permukaan Kubus adalah :"
-            +hasil, "luas", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Volume Kubus adalah :"
+            +hasil, "volume", JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error : "+e, "Gagal",
                     JOptionPane.WARNING_MESSAGE);

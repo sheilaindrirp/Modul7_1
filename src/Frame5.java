@@ -1,3 +1,6 @@
+
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -9,7 +12,8 @@
  * @author Irvina
  */
 public class Frame5 extends javax.swing.JFrame {
-
+          String temp = "";
+        Double tinggi, berat, id;
     /**
      * Creates new form Frame5
      */
@@ -27,7 +31,6 @@ public class Frame5 extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -39,8 +42,7 @@ public class Frame5 extends javax.swing.JFrame {
         Tinggi = new javax.swing.JTextField();
         BB = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        rb1 = new javax.swing.JRadioButton();
         Ideal = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -48,13 +50,14 @@ public class Frame5 extends javax.swing.JFrame {
         Diagnosa2 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        rb2 = new javax.swing.JRadioButton();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
-
-        jLabel1.setText("CEK IDEAL TUBUH");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(180, 20, 170, 30);
 
         jLabel2.setText("Nama");
         getContentPane().add(jLabel2);
@@ -73,14 +76,29 @@ public class Frame5 extends javax.swing.JFrame {
         jLabel5.setBounds(90, 330, 200, 30);
 
         btnHitung.setText("Hitung");
+        btnHitung.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHitungActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnHitung);
         btnHitung.setBounds(90, 270, 80, 30);
 
         btnCobaLagi.setText("Coba Lagi");
+        btnCobaLagi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCobaLagiActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnCobaLagi);
         btnCobaLagi.setBounds(190, 270, 100, 30);
 
         btnKeluar.setText("Keluar");
+        btnKeluar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnKeluarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnKeluar);
         btnKeluar.setBounds(310, 270, 80, 30);
 
@@ -106,13 +124,15 @@ public class Frame5 extends javax.swing.JFrame {
         getContentPane().add(jLabel6);
         jLabel6.setBounds(40, 230, 90, 20);
 
-        jRadioButton1.setText("Perempuan");
-        getContentPane().add(jRadioButton1);
-        jRadioButton1.setBounds(150, 230, 79, 23);
-
-        jRadioButton2.setText("Laki - laki");
-        getContentPane().add(jRadioButton2);
-        jRadioButton2.setBounds(280, 230, 69, 23);
+        buttonGroup1.add(rb1);
+        rb1.setText("Perempuan");
+        rb1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rb1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(rb1);
+        rb1.setBounds(140, 220, 130, 40);
 
         Ideal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,7 +156,7 @@ public class Frame5 extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Diagnosa1);
-        Diagnosa1.setBounds(50, 420, 350, 30);
+        Diagnosa1.setBounds(100, 420, 340, 30);
 
         Diagnosa2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -144,7 +164,7 @@ public class Frame5 extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Diagnosa2);
-        Diagnosa2.setBounds(50, 470, 350, 30);
+        Diagnosa2.setBounds(100, 470, 340, 30);
 
         jLabel9.setText("cm");
         getContentPane().add(jLabel9);
@@ -154,7 +174,31 @@ public class Frame5 extends javax.swing.JFrame {
         getContentPane().add(jLabel10);
         jLabel10.setBounds(240, 120, 40, 20);
 
-        pack();
+        jPanel2.setBackground(new java.awt.Color(255, 153, 153));
+        jPanel2.setLayout(null);
+
+        jLabel1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        jLabel1.setText("CEK IDEAL TUBUH");
+        jPanel2.add(jLabel1);
+        jLabel1.setBounds(150, 10, 150, 40);
+
+        buttonGroup1.add(rb2);
+        rb2.setText("Laki-laki");
+        jPanel2.add(rb2);
+        rb2.setBounds(290, 220, 130, 40);
+
+        jLabel11.setText("Hasil");
+        jPanel2.add(jLabel11);
+        jLabel11.setBounds(30, 420, 60, 30);
+
+        jLabel12.setText("Saran");
+        jPanel2.add(jLabel12);
+        jLabel12.setBounds(30, 474, 50, 30);
+
+        getContentPane().add(jPanel2);
+        jPanel2.setBounds(0, 0, 450, 510);
+
+        setBounds(0, 0, 470, 549);
     }// </editor-fold>//GEN-END:initComponents
 
     private void NamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NamaActionPerformed
@@ -176,6 +220,39 @@ public class Frame5 extends javax.swing.JFrame {
     private void Diagnosa2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Diagnosa2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Diagnosa2ActionPerformed
+
+    private void btnHitungActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHitungActionPerformed
+        if (Nama.getText().equals("")||BB.getText().equals("")
+        ||Tinggi.getText().equals("")) {
+          JOptionPane.showMessageDialog(null, "Kotak harus diisi semua");
+      } else if(rb1.isSelected()||rb2.isSelected()) {
+          try {
+              Proses();
+          }catch (Exception e) {
+              JOptionPane.showMessageDialog(null, "Inputan ada yang salah");
+          }
+      }else {
+          JOptionPane.showMessageDialog(null, "Pilih jenis kelamin");
+      }// TODO add your handling code here:
+    }//GEN-LAST:event_btnHitungActionPerformed
+
+    private void btnCobaLagiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCobaLagiActionPerformed
+        Nama.setText("");
+        Tinggi.setText("");
+        BB.setText("");
+        Diagnosa1.setText("");
+        Diagnosa2.setText("");
+        Ideal.setText("");
+        buttonGroup1.clearSelection();// TODO add your handling code here:
+    }//GEN-LAST:event_btnCobaLagiActionPerformed
+
+    private void btnKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKeluarActionPerformed
+        dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_btnKeluarActionPerformed
+
+    private void rb1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb1ActionPerformed
+    rb2.setSelected(false);        // TODO add your handling code here:
+    }//GEN-LAST:event_rb1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -225,6 +302,8 @@ public class Frame5 extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -233,7 +312,34 @@ public class Frame5 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JRadioButton rb1;
+    private javax.swing.JRadioButton rb2;
     // End of variables declaration//GEN-END:variables
+
+private void Proses() {
+       tinggi = Double.parseDouble(Tinggi.getText());
+       berat = Double.parseDouble(BB.getText());
+       
+       if (rb2.isSelected()) {
+           id = (tinggi - 100) * 1;
+       } else if (rb1.isSelected()) {
+           id = (tinggi - 104) * 1;
+       }
+       temp = Double.toString(id.intValue());
+       
+       if (id < berat) {
+           Ideal.setText(temp);
+           Diagnosa1.setText("Sorry " + "\n" + Nama.getText() +"\n"+ " Sepertinya Anda Overweight");
+           Diagnosa2.setText("Banyak olahraga dan hindari makanan kolesterol tinggi");
+       } else if (id > berat) {
+           Ideal.setText(temp);
+           Diagnosa1.setText("Sorry " + "\n" + Nama.getText() + "\n" + " Sepertinya Anda Underweight");
+           Diagnosa2.setText("Banyak konsumsi makanan berprotein tinggi");
+       } else {
+           Ideal.setText(temp);
+           Diagnosa1.setText("Congratulatioon !! " + "\n" + Nama.getText()  + "\n" + " Berat Badan Anda Ideal");
+           Diagnosa2.setText("Lanjutkan Pola Hidup Sehatmu ^^9");
+       }
+    }
 }

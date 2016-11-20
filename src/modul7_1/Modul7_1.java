@@ -7,7 +7,7 @@ package modul7_1;
 
 /**
  *
- * @author Irvina
+ * @author Helga
  */
 public class Modul7_1 {
 
